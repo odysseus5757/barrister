@@ -14,7 +14,7 @@
               <dd><%= @favorite.user.username %></dd>
 
               <dt>Brief</dt>
-              <dd><%= @favorite.brief.name %></dd>
+              <dd><a href="<%= @favorite.brief.link %>"><%= @favorite.brief.name %></a></dd>
 
               <dt>Comment</dt>
               <dd><%= @favorite.comment %></dd>

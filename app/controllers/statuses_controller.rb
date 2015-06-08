@@ -1,6 +1,7 @@
 class StatusesController < ApplicationController
   def index
     @statuses = current_user.timeline_statuses.order("created_at DESC")
+    @mystatuses = current_user.statuses.order ("created_at DESC")
   end
 
   def show
