@@ -8,7 +8,7 @@
   <% end %>
 </ul>
 <ul class="list-group">
-  <li class="list-group-item list-group-item-success">Number of People Who Listen to Me: <%= current_user.friends_where_receiver.count %></li>
+  <li class="list-group-item list-group-item-danger">Number of People Who Listen to Me: <%= current_user.friends_where_receiver.count %></li>
   <% current_user.friends_where_receiver.each do |user| %>
     <li class="list-group-item"><%= user.username %></li>
   <% end %>

@@ -1,6 +1,10 @@
 class FavoritesController < ApplicationController
   def index
-    @favorites = Favorite.all
+    #if current_user != nil
+      @favorites = Favorite.where({ :user_id => current_user.id })
+    #else
+      #@favorites = Favorite.all
+    #end
   end
 
   def show
@@ -49,4 +53,5 @@ class FavoritesController < ApplicationController
 
     redirect_to "/favorites", :notice => "Favorite deleted."
   end
+
 end

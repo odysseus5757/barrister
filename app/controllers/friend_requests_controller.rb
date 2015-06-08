@@ -1,6 +1,6 @@
 class FriendRequestsController < ApplicationController
   def index
-    @friend_requests = FriendRequest.all
+    @friend_requests = FriendRequest.where({ :sender_id => current_user.id })
   end
 
   def show
@@ -17,7 +17,7 @@ class FriendRequestsController < ApplicationController
     @friend_request.receiver_id = params[:receiver_id]
 
     if @friend_request.save
-      redirect_to "/friend_requests", :notice => "Friend request created successfully."
+      redirect_to "/statuses", :notice => "Friend request created successfully."
     else
       render 'new'
     end
