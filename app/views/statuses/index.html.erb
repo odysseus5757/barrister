@@ -1,5 +1,20 @@
 <div class="row">
-  <div class="col-md-12">
+<div class="col-md-3">
+<ul class="list-group">
+
+  <li class="list-group-item list-group-item-success">Legal Eagles I Listen To:</li>
+  <% current_user.friends_where_sender.each do |user| %>
+    <li class="list-group-item"><%= user.username %></li>
+  <% end %>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">Number of People Who Listen to Me: <%= current_user.friends_where_receiver.count %></li>
+  <% current_user.friends_where_receiver.each do |user| %>
+    <li class="list-group-item"><%= user.username %></li>
+  <% end %>
+</ul>
+</div>
+  <div class="col-md-9">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h2>
