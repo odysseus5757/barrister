@@ -5,5 +5,6 @@ class Brief < ActiveRecord::Base
   validates :link, :presence => true
 
   belongs_to :user
+  has_many :favorites
 
 end

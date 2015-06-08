@@ -4,5 +4,6 @@ class Favorite < ActiveRecord::Base
   validates :brief_id, :presence => true
 
   belongs_to :user
+  belongs_to :brief
 
 end

@@ -11,13 +11,10 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Name</dt>
-              <dd><%= @brief.name %></dd>
+              <dd><a href="<%= @brief.link %>"><%= @brief.name %></a></dd>
 
               <dt>User</dt>
               <dd><%= @brief.user.username %></dd>
-
-              <dt>Link</dt>
-              <dd><%= @brief.link %></dd>
 
               <dt>Lawyer</dt>
               <dd><%= @brief.lawyer %></dd>
@@ -39,6 +36,15 @@
           </div>
         </div>
       </div>
+
+              <ul class="list group">
+                <% @brief.favorites.each do |favorite| %>
+                  <li class="list-group-item">
+                    <%= favorite.user.username %> lists this brief as a favorite and says: <%= favorite.comment %>
+                    </li>
+                    <% end %>
+                    </ul>
+
     </div>
   </div>
 </div>
