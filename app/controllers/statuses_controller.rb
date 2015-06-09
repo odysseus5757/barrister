@@ -20,7 +20,7 @@ class StatusesController < ApplicationController
 
   def searchall
     @q = Status.ransack(params[:q])
-    @filteredstatuses = @q.result(:distinct => true).includes(:user)
+    @filteredstatuses = @q.result(:distinct => true).includes(:user).order("created_at DESC")
   end
 
   def new
