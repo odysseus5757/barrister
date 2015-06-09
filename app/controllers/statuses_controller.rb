@@ -1,4 +1,14 @@
 class StatusesController < ApplicationController
+
+  before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :show, :edit]
+
+  def ensure_current_user_is_owner
+    @favorite = Favorite.find(params[:id])
+    if @favorite.user_id != current_user.id
+      redirect_to root_url, :alert => "Nice try"
+    end
+  end
+
   def index
     @statuses = current_user.timeline_statuses.order("created_at DESC")
     @mystatuses = current_user.statuses.order ("created_at DESC")
