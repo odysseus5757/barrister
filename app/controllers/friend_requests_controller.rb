@@ -3,9 +3,9 @@ class FriendRequestsController < ApplicationController
   before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :show, :edit]
 
   def ensure_current_user_is_owner
-    @friend_request = Friend_request.find(params[:id])
+    @friend_request = FriendRequest.find(params[:id])
     if @friend_request.sender_id != current_user.id
-      redirect_to root_url, :alert => "Nice try"
+      redirect_to root_url, :alert => "Unauthorized"
     end
   end
 

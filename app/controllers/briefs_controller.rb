@@ -11,6 +11,7 @@ class BriefsController < ApplicationController
 
   def index
 
+    #@q = current_user.briefs.ransack(params[:q])
     @q = Brief.ransack(params[:q])
     @briefs = @q.result(:distinct => true).includes(:user)
 

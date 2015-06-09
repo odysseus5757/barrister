@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
 
-  before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :show, :edit]
+  before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :edit]
 
   def ensure_current_user_is_owner
     @favorite = Favorite.find(params[:id])
@@ -11,8 +11,8 @@ class FavoritesController < ApplicationController
 
   def index
     #if current_user != nil
-      @favorites = current_user.favorites
-      #@favorites = Favorite.where({ :user_id => current_user.id })
+      #@favorites = current_user.favorites
+      @favorites = Favorite.where({ :user_id => current_user.id })
     #else
       #@favorites = Favorite.all
     #end

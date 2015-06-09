@@ -5,7 +5,7 @@ class StatusesController < ApplicationController
   def ensure_current_user_is_owner
     @status = Status.find(params[:id])
     if @status.user_id != current_user.id
-      redirect_to root_url, :alert => "Nice try"
+      redirect_to root_url, :alert => "Unauthorized"
     end
   end
 
@@ -18,12 +18,10 @@ class StatusesController < ApplicationController
     @status = Status.find(params[:id])
   end
 
-  # def searchall
-
-  #     @q = Status.ransack(params[:q])
-  #     @statuses = @q.result(:distinct => true).includes(:user)
-
-  # end
+  def searchall
+    @q = Status.ransack(params[:q])
+    @statuses = @q.result(:distinct => true).includes(:user)
+  end
 
   def new
     @status = Status.new

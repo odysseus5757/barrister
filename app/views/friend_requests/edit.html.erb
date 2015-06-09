@@ -28,7 +28,7 @@
               Sender
             </label>
             <div class="col-sm-10">
-              <input type="text" id="sender_id" name="sender_id" placeholder="Sender" class="form-control" value="<%= @friend_request.sender_id %>">
+              <input type="text" id="sender_id" name="sender_id" placeholder="Sender" class="form-control" value="<%= @friend_request.sender.username %>">
             </div>
           </div>
 
@@ -38,7 +38,7 @@
               Receiver
             </label>
             <div class="col-sm-10">
-              <input type="text" id="receiver_id" name="receiver_id" placeholder="Receiver" class="form-control" value="<%= @friend_request.receiver_id %>">
+              <input type="text" id="receiver_id" name="receiver_id" placeholder="Receiver" class="form-control" value="<%= @friend_request.receiver.username %>">
             </div>
           </div>
 
