@@ -54,6 +54,9 @@ Rails.application.routes.draw do
 
   # Routes for the Status resource:
   # CREATE
+
+  get "/statuses/searchall", :controller => "statuses", :action => "searchall"
+
   get "/statuses/new", :controller => "statuses", :action => "new"
   post "/create_status", :controller => "statuses", :action => "create"
 

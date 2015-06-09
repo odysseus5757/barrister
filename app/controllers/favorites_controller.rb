@@ -11,8 +11,8 @@ class FavoritesController < ApplicationController
 
   def index
     #if current_user != nil
-      #@favorites = current_user.favorites
-      @favorites = Favorite.where({ :user_id => current_user.id })
+      @favorites = current_user.favorites
+      #@favorites = Favorite.where({ :user_id => current_user.id })
     #else
       #@favorites = Favorite.all
     #end
