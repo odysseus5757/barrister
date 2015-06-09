@@ -1,5 +1,14 @@
 <div class="row">
-  <div class="col-md-4">
+
+<%= search_form_for @q do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :content_cont, "Title containing" %>
+    <%= f.text_field :content_cont, :class => "form-control", :placeholder => "Enter a few characters" %>
+  </div>
+
+  <div class="col-md-9">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h2>
@@ -21,55 +30,6 @@
     </div>
   </div>
 
-<div class="col-md-4">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h2>
-          My Statuses
-          <a href="/statuses/new" class="btn btn-sm btn-success">
-            <i class="fa fa-plus"></i>
-          </a>
-        </h2>
-      </div>
-      <table class="table table-hover table-striped">
-        <% @mystatuses.each do |status| %>
-          <tr>
-            <td><%= time_ago_in_words(status.created_at) %> ago</td>
-            <td><%= status.content %></td>
-            <td><div class="btn-group btn-group-justified">
-                   <a href="/delete_status/<%= status.id %>" class="btn btn-danger" rel="nofollow">
-                    <i class="fa fa-trash-o"></i>
-                    </a>
-                </div>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
-
-<div class="col-md-3">
-<ul class="list-group">
-
-  <li class="list-group-item list-group-item-success">Legal Eagles I Listen To:</li>
-  <% current_user.friends_where_sender.each do |user| %>
-    <li class="list-group-item"><%= user.username %></li>
-  <% end %>
-</ul>
-<ul class="list-group">
-  <li class="list-group-item list-group-item-danger">Number of People Who Listen to Me: <%= current_user.friends_where_receiver.count %></li>
-  <% current_user.friends_where_receiver.each do |user| %>
-    <li class="list-group-item"><%= user.username %></li>
-  <% end %>
-</ul>
-</div>
-
-        <!-- <h2>
-          Search All Statuses
-          <a href="/statuses/searchall" class="btn btn-sm btn-success">
-            <i class="fa fa-plus"></i>
-          </a>
-        </h2> -->
 
 </div>
 

@@ -69,6 +69,8 @@ Rails.application.routes.draw do
   get "/delete_status/:id", :controller => "statuses", :action => "destroy"
   #------------------------------
 
+  # get "/statuses/searchall", :controller => "statuses", :action => "searchall"
+
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.

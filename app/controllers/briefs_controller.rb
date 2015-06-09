@@ -3,14 +3,18 @@ class BriefsController < ApplicationController
   before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :edit]
 
   def ensure_current_user_is_owner
-    @favorite = Favorite.find(params[:id])
-    if @favorite.user_id != current_user.id
+    @brief = Brief.find(params[:id])
+    if @brief.user_id != current_user.id
       redirect_to root_url, :alert => "Unauthorized"
     end
   end
 
   def index
-    @briefs = Brief.all
+
+    @q = Brief.ransack(params[:q])
+    @briefs = @q.result(:distinct => true).includes(:user)
+
+    #@briefs = Brief.all
   end
 
   def show

@@ -3,8 +3,8 @@ class FriendRequestsController < ApplicationController
   before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :show, :edit]
 
   def ensure_current_user_is_owner
-    @favorite = Favorite.find(params[:id])
-    if @favorite.user_id != current_user.id
+    @friend_request = Friend_request.find(params[:id])
+    if @friend_request.sender_id != current_user.id
       redirect_to root_url, :alert => "Nice try"
     end
   end

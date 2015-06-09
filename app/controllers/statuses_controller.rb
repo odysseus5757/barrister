@@ -3,8 +3,8 @@ class StatusesController < ApplicationController
   before_action :ensure_current_user_is_owner, :only => [:update, :destroy, :show, :edit]
 
   def ensure_current_user_is_owner
-    @favorite = Favorite.find(params[:id])
-    if @favorite.user_id != current_user.id
+    @status = Status.find(params[:id])
+    if @status.user_id != current_user.id
       redirect_to root_url, :alert => "Nice try"
     end
   end
@@ -17,6 +17,13 @@ class StatusesController < ApplicationController
   def show
     @status = Status.find(params[:id])
   end
+
+  # def searchall
+
+  #     @q = Status.ransack(params[:q])
+  #     @statuses = @q.result(:distinct => true).includes(:user)
+
+  # end
 
   def new
     @status = Status.new
