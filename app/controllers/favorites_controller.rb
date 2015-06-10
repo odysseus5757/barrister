@@ -22,6 +22,11 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
   end
 
+  def searchall
+    @q = Favorite.ransack(params[:q])
+    @filteredfavorites = @q.result(:distinct => true).includes(:user)
+  end
+
   def new
     @favorite = Favorite.new
   end

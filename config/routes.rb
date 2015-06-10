@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   root 'statuses#index'
 
   # Routes for the Favorite resource:
+
+  get "/favorites/searchall", :controller => "favorites", :action => "searchall"
+
   # CREATE
   get "/favorites/new", :controller => "favorites", :action => "new"
   post "/create_favorite", :controller => "favorites", :action => "create"

@@ -1,12 +1,31 @@
+<div class="page-header">
+  <h1 align="left">
+    Search All Statuses<a href="/statuses/searchall" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></a>
+  </h1>
+</div>
+
+<div>
+  <h1 align="right">
+    Create New Status<a href="/statuses/new" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></a>
+  </h1>
+</div>
+
+<!-- <div>
+  <h2 align="left">
+    Search All Statuses<a href="/statuses/searchall" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></a>
+  </h2>
+
+  <h2 align="right">
+    Create New Status<a href="/statuses/new" class="btn btn-sm btn-success"><i class="fa fa-plus"></i></a>
+  </h2>
+</div> -->
+
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h2>
-          Statuses
-          <a href="/statuses/new" class="btn btn-sm btn-success">
-            <i class="fa fa-plus"></i>
-          </a>
+          Folks say:
         </h2>
       </div>
       <table class="table table-hover table-striped">
@@ -21,14 +40,11 @@
     </div>
   </div>
 
-<div class="col-md-4">
+<div class="col-md-5">
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h2>
-          My Statuses
-          <a href="/statuses/new" class="btn btn-sm btn-success">
-            <i class="fa fa-plus"></i>
-          </a>
+          I've said:
         </h2>
       </div>
       <table class="table table-hover table-striped">
@@ -48,7 +64,7 @@
     </div>
   </div>
 
-<div class="col-md-3">
+<div class="col-md-2">
 <ul class="list-group">
 
   <li class="list-group-item list-group-item-success">Legal Eagles I Listen To:</li>
@@ -57,19 +73,13 @@
   <% end %>
 </ul>
 <ul class="list-group">
-  <li class="list-group-item list-group-item-danger">Number of People Who Listen to Me: <%= current_user.friends_where_receiver.count %></li>
+  <li class="list-group-item list-group-item-danger">Who Listens to Me: <%= current_user.friends_where_receiver.count %></li>
   <% current_user.friends_where_receiver.each do |user| %>
     <li class="list-group-item"><%= user.username %></li>
   <% end %>
 </ul>
 </div>
 
-        <h2>
-          Search All Statuses
-          <a href="/statuses/searchall" class="btn btn-sm btn-success">
-          <i class="fa fa-plus"></i>
-          </a>
-        </h2>
 
 </div>
 
